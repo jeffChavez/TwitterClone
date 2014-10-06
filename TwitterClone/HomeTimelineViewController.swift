@@ -13,16 +13,19 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView : UITableView!
     
     var tweets : [Tweet]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
-        
         
         if let path = NSBundle.mainBundle().pathForResource("tweet", ofType: "json") {
             var error : NSError?
             let jsonData = NSData(contentsOfFile: path)
             self.tweets = Tweet.parseJSONDataIntoTweets(jsonData)
+            println("\(tweets)")
+            self.tweets = self.tweets?.sorted({ (s1:Tweet, s2:Tweet) -> Bool in
+                return s1.text < s2.text
+            })
         }
     }
     
