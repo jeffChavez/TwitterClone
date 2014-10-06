@@ -26,9 +26,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.tweets = self.tweets?.sorted({ (s1:Tweet, s2:Tweet) -> Bool in
-            return s1.text < s2.text
-        })
+        tweets!.sort {$0.text > $1.text}
     }
     
     override func didReceiveMemoryWarning() {
