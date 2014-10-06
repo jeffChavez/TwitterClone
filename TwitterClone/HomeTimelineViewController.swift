@@ -22,11 +22,13 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource {
             var error : NSError?
             let jsonData = NSData(contentsOfFile: path)
             self.tweets = Tweet.parseJSONDataIntoTweets(jsonData)
-            println("\(tweets)")
-            self.tweets = self.tweets?.sorted({ (s1:Tweet, s2:Tweet) -> Bool in
-                return s1.text < s2.text
-            })
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tweets = self.tweets?.sorted({ (s1:Tweet, s2:Tweet) -> Bool in
+            return s1.text < s2.text
+        })
     }
     
     override func didReceiveMemoryWarning() {
