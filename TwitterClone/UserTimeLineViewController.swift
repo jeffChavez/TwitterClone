@@ -10,23 +10,32 @@ import UIKit
 import Accounts
 import Social
 
-class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate {
+class UserTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate {
     
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var userTimeLinePhotoImageView : UIImageView!
+    @IBOutlet weak var userTimeLineUsernameLabel : UILabel!
+    @IBOutlet weak var userTimeLineView : UIView!
+    
     
     var tweets : [Tweet]?
     var networkController: NetworkController!
-
+    var screenname : String?
+    var user : String?
+    var photo : UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.registerNib(UINib(nibName: "CustomTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TWEET_CELL")
+        self.userTimeLineUsernameLabel.text = user
+        self.userTimeLinePhotoImageView.image = photo
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.networkController = appDelegate.networkController
         
-        networkController.fetchHomeTimeLine { (errorDescription: String?, tweets: [Tweet]?) -> Void in
+        networkController.fetchUserTimeLine(screenname) { (errorDescription, tweets) -> (Void) in
             if errorDescription == nil {
                 self.tweets = tweets
                 self.tableView.reloadData()
@@ -66,6 +75,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         cell.tweetLabel.text = tweet?.text
         cell.usernameLabel.text = tweet?.user
         cell.screennameLabel.text = tweet?.screenname
+//        cell.tweetLabel.preferredMaxLayoutWidth = cell.tweetLabel.frame.width - 68
         
         if tweet?.photo != nil {
             cell.photoImageView.image = tweet?.photo
@@ -80,7 +90,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let newVC = self.storyboard?.instantiateViewControllerWithIdentifier("TWEET_VC") as TweetViewController
-        newVC.selectedTweet = self.tweets?[indexPath.row]
         self.navigationController?.pushViewController(newVC, animated: true)
+        newVC.selectedTweet = self.tweets?[indexPath.row]
     }
 }

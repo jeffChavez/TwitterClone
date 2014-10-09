@@ -32,19 +32,16 @@ class TweetViewController: UIViewController {
         favoriteNumberLabel.text = self.selectedTweet?.favorites.description
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.networkController = appDelegate.networkController
-        
-        self.networkController.fetchTweet(selectedTweet!, completionHandler: { (errorDescription: String?, tweet: Tweet?) -> (Void) in
-            if errorDescription != nil {
-                self.selectedTweet? = tweet!
-            }
-        })
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func photoButtonPressed () {
+        let newVC = self.storyboard?.instantiateViewControllerWithIdentifier("USER_VC") as UserTimelineViewController
+        self.navigationController?.pushViewController(newVC, animated: true)
+        newVC.screenname = selectedTweet?.screenname
+        newVC.user = selectedTweet?.user
+        newVC.photo = selectedTweet?.photo
     }
 }
