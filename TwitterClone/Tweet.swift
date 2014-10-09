@@ -15,6 +15,9 @@ class Tweet {
     var photo : UIImage
     var user : String
     var screenname : String
+    var favorites : Int
+    var retweets : Int
+    var id : Int
     
     init (tweetInfo: NSDictionary) {
         let user = tweetInfo["user"] as NSDictionary
@@ -25,9 +28,12 @@ class Tweet {
         self.user = user["name"] as String
         let screennameString = user["screen_name"] as String
         self.screenname = "@\(screennameString)"
+        self.retweets = tweetInfo["retweet_count"] as Int
+        self.favorites = tweetInfo["favorite_count"] as Int
+        self.id = tweetInfo["id"] as Int
     }
     
-    class func parseJSONDataIntoTweets (rawJSONData: NSData) -> [Tweet]? {
+    class func parseHomeTimeLineJSONDataIntoTweets (rawJSONData: NSData) -> [Tweet]? {
         var error : NSError?
         if let JSONArray = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: &error) as? NSArray {
             var tweets = [Tweet]()
@@ -41,4 +47,16 @@ class Tweet {
         }
         return nil
     }
+    
+    class func parseTweetJSONDataIntoTweet (rawJSONData: NSData) -> Tweet? {
+        var error : NSError?
+        if let JSONDictionary = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: &error) as? NSDictionary {
+            
+            var tweet : Tweet?
+            var newTweet = Tweet(tweetInfo: JSONDictionary)
+            return newTweet
+        }
+        return nil
+    }
+
 }

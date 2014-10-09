@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BA71F5519E5B4B800FFDD21 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA71F5419E5B4B800FFDD21 /* NetworkController.swift */; };
+		6BA71F5719E5E1E500FFDD21 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA71F5619E5E1E500FFDD21 /* TweetViewController.swift */; };
 		6BBBF40E19E47E950031D07A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBBF40D19E47E950031D07A /* CustomTableViewCell.swift */; };
 		6BD2DA3219E32FD800B55716 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2DA3119E32FD800B55716 /* Tweet.swift */; };
 		6BD2DA3419E3302500B55716 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2DA3319E3302500B55716 /* HomeTimelineViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6BA71F5419E5B4B800FFDD21 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		6BA71F5619E5E1E500FFDD21 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		6BBBF40D19E47E950031D07A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6BD2DA3119E32FD800B55716 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		6BD2DA3319E3302500B55716 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				6BD2DA3119E32FD800B55716 /* Tweet.swift */,
 				6BBBF40D19E47E950031D07A /* CustomTableViewCell.swift */,
 				6BD2DA3719E334BA00B55716 /* tweet.json */,
+				6BA71F5419E5B4B800FFDD21 /* NetworkController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD2DA3319E3302500B55716 /* HomeTimelineViewController.swift */,
+				6BA71F5619E5E1E500FFDD21 /* TweetViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -251,7 +257,9 @@
 			files = (
 				6BD2DA3419E3302500B55716 /* HomeTimelineViewController.swift in Sources */,
 				6BBBF40E19E47E950031D07A /* CustomTableViewCell.swift in Sources */,
+				6BA71F5519E5B4B800FFDD21 /* NetworkController.swift in Sources */,
 				6BE78F1219E32EEF00FEC00A /* AppDelegate.swift in Sources */,
+				6BA71F5719E5E1E500FFDD21 /* TweetViewController.swift in Sources */,
 				6BE78F1519E32EEF00FEC00A /* TwitterClone.xcdatamodeld in Sources */,
 				6BD2DA3219E32FD800B55716 /* Tweet.swift in Sources */,
 			);

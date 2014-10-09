@@ -11,8 +11,8 @@ import UIKit
 
 class CustomTableViewCell : UITableViewCell {
     
-    @IBOutlet var photoImageView : UIImageView!
-    @IBOutlet var tweetLabel : UILabel!
     @IBOutlet var usernameLabel : UILabel!
     @IBOutlet var screennameLabel : UILabel!
+    @IBOutlet var photoImageView : UIImageView!
+    @IBOutlet var tweetLabel : UILabel!
 }
