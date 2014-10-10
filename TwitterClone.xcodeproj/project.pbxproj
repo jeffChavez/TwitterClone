@@ -76,9 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				6BD2DA3119E32FD800B55716 /* Tweet.swift */,
-				6BA71F5819E708C000FFDD21 /* CustomTableViewCell.xib */,
-				6BBBF40D19E47E950031D07A /* CustomTableViewCell.swift */,
-				6BD2DA3719E334BA00B55716 /* tweet.json */,
 				6BA71F5419E5B4B800FFDD21 /* NetworkController.swift */,
 			);
 			name = Model;
@@ -87,6 +84,8 @@
 		6B66151F19E32F5E00F5B3C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6BBBF40D19E47E950031D07A /* CustomTableViewCell.swift */,
+				6BA71F5819E708C000FFDD21 /* CustomTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,6 +137,7 @@
 		6BE78F0F19E32EEF00FEC00A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6BD2DA3719E334BA00B55716 /* tweet.json */,
 				6BE78F1019E32EEF00FEC00A /* Info.plist */,
 			);
 			name = "Supporting Files";

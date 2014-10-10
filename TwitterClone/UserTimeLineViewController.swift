@@ -17,7 +17,6 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var userTimeLineUsernameLabel : UILabel!
     @IBOutlet weak var userTimeLineView : UIView!
     
-    
     var tweets : [Tweet]?
     var networkController: NetworkController!
     var screenname : String?
@@ -75,7 +74,6 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
         cell.tweetLabel.text = tweet?.text
         cell.usernameLabel.text = tweet?.user
         cell.screennameLabel.text = tweet?.screenname
-//        cell.tweetLabel.preferredMaxLayoutWidth = cell.tweetLabel.frame.width - 68
         
         if tweet?.photo != nil {
             cell.photoImageView.image = tweet?.photo
