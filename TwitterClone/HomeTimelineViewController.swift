@@ -73,6 +73,9 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
             self.networkController.downloadUserImageForTweet(tweet!, completionHandler: { (image) -> (Void) in
                 let cellForImage = self.tableView.cellForRowAtIndexPath(indexPath) as CustomTableViewCell?
                 cellForImage?.photoImageView.image = image
+                cell.photoImageView.layer.cornerRadius = 3
+                cell.photoImageView.layer.masksToBounds = true
+                cell.photoImageView.layer.borderWidth = 0.5
             })
         }
         return cell

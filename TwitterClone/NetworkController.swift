@@ -98,6 +98,9 @@ class NetworkController {
                 completionHandler(image: photo)
             })
         }
+        
+//        let normalRange = smallProfileImageURL.rangeOfString("_normal", options: nil, range: nil, locale: nil)
+//        self.profileImageURL = smallProfileImageURL.stringByReplacingCharactersInRange(normalRange!, withString: "_bigger")
     }
 
     init () {
