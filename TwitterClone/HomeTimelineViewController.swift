@@ -32,7 +32,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 self.tweets = tweets
                 self.tableView.reloadData()
             } else {
-                //alert the user that somethign went wrong.
+                //alert the user that somethign went wrong...
             }
 
         }
