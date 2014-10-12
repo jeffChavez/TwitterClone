@@ -58,7 +58,7 @@
                 <outlet property="tweetLabel" destination="I8d-bw-fce" id="etC-dt-cKA"/>
                 <outlet property="usernameLabel" destination="bo8-Z0-vlj" id="JCx-Me-O7U"/>
             </connections>
-            <point key="canvasLocation" x="434" y="311.5"/>
+            <point key="canvasLocation" x="471" y="310.5"/>
         </tableViewCell>
     </objects>
 </document>

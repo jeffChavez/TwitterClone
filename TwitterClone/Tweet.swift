@@ -17,7 +17,7 @@ class Tweet {
     var screenname : String
     var favorites : Int
     var retweets : Int
-    var id : Int
+    var id : String
     
     init (tweetInfo: NSDictionary) {
         let user = tweetInfo["user"] as NSDictionary
@@ -28,7 +28,7 @@ class Tweet {
         self.screenname = "@\(screennameString)"
         self.retweets = tweetInfo["retweet_count"] as Int
         self.favorites = tweetInfo["favorite_count"] as Int
-        self.id = tweetInfo["id"] as Int
+        self.id = tweetInfo["id_str"] as String
     }
     
     class func parseTimeLineJSONDataIntoTweets (rawJSONData: NSData) -> [Tweet]? {

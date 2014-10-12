@@ -19,6 +19,8 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     var tweets : [Tweet]?
     var networkController: NetworkController!
+    var refreshControl: UIRefreshControl!
+    
     var screenname : String?
     var user : String?
     var photo : UIImage?

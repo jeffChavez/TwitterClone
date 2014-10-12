@@ -16,6 +16,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     var tweets : [Tweet]?
     var networkController: NetworkController!
+    var refreshControl : UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +27,21 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.networkController = appDelegate.networkController
         
-        networkController.fetchHomeTimeLine { (errorDescription: String?, tweets: [Tweet]?) -> Void in
+        networkController.fetchHomeTimeLine (nil) { (errorDescription, tweets) -> (Void) in
             if errorDescription == nil {
                 self.tweets = tweets
                 self.tableView.reloadData()
             } else {
                 //alert the user that somethign went wrong
             }
+
         }
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refersh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         self.tableView.reloadData()
     }
     
@@ -86,4 +94,20 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         newVC.selectedTweet = self.tweets?[indexPath.row]
         self.navigationController?.pushViewController(newVC, animated: true)
     }
+    
+    func refresh (sender: AnyObject) {
+        let tweetid = self.tweets?[0].id
+        self.networkController.fetchHomeTimeLine (tweetid) { (errorDescription, tweets) -> (Void) in
+            if errorDescription == nil {
+                //alert the user something went wrong
+                self.refreshControl?.endRefreshing()
+            } else {
+                var tweetsNew : [Tweet]? = tweets
+                self.tweets! += tweetsNew!
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
+
 }

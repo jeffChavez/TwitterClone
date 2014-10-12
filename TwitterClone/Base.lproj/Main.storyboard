@@ -46,9 +46,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="95"/>
+            <point key="canvasLocation" x="1758" y="555"/>
         </scene>
-        <!--Tweet View Controller-->
+        <!--Item-->
         <scene sceneID="ns0-86-lpm">
             <objects>
                 <viewController storyboardIdentifier="TWEET_VC" id="KR0-00-jBW" customClass="TweetViewController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,6 +146,7 @@
                             <constraint firstItem="M24-xh-m9c" firstAttribute="leading" secondItem="n72-Yz-87d" secondAttribute="trailing" constant="8" id="zqu-rt-BW5"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="h5x-fp-HN9"/>
                     <connections>
                         <outlet property="favoriteLabel" destination="Pv2-h9-NZB" id="yNT-ED-CGu"/>
                         <outlet property="favoriteNumberLabel" destination="M24-xh-m9c" id="dOA-bS-zKF"/>
@@ -159,9 +160,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAi-GM-46p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1611" y="95"/>
+            <point key="canvasLocation" x="2423" y="95"/>
         </scene>
-        <!--User Timeline View Controller-->
+        <!--Item-->
         <scene sceneID="LEq-Jb-lmR">
             <objects>
                 <viewController storyboardIdentifier="USER_VC" id="dbz-yq-UbM" customClass="UserTimelineViewController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,6 +222,7 @@
                             <constraint firstItem="3US-eH-xqb" firstAttribute="leading" secondItem="BSG-3e-aVh" secondAttribute="leadingMargin" constant="-16" id="vJ6-he-fXQ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="6St-e9-Aek"/>
                     <connections>
                         <outlet property="tableView" destination="3US-eH-xqb" id="HHh-a3-pgd"/>
                         <outlet property="userTimeLinePhotoImageView" destination="0sE-ow-Jme" id="DD9-QD-FTd"/>
@@ -230,12 +232,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7c-64-Ppc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="95"/>
+            <point key="canvasLocation" x="3077" y="95"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="dXu-st-C4h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mMb-r1-AFj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TyY-EC-G57"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z0T-rJ-Yha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -248,7 +251,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3O-hr-MHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="95"/>
+            <point key="canvasLocation" x="1017" y="555"/>
         </scene>
     </scenes>
 </document>

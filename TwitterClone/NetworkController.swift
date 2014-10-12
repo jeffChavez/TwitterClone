@@ -17,7 +17,7 @@ class NetworkController {
     var tweets : [Tweet]?
     var tweet : Tweet?
     
-    func fetchHomeTimeLine(completionHandler: (errorDescription: String?, tweets: [Tweet]?) -> (Void)) {
+    func fetchHomeTimeLine(since_id: String?, completionHandler: (errorDescription: String?, tweets: [Tweet]?) -> (Void)) {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
 
@@ -27,7 +27,13 @@ class NetworkController {
                 let accounts = accountStore.accountsWithAccountType(accountType)
                 self.twitterAccount = accounts.first as ACAccount?
                 let url = NSURL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
-                let twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: url, parameters: nil)
+                var twitterRequest : SLRequest!
+                
+                if since_id == nil {
+                    twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: url, parameters: nil)
+                } else {
+                    twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: url, parameters: ["since_id": since_id!])
+                }
                 twitterRequest.account = self.twitterAccount
                 twitterRequest.performRequestWithHandler({ (data, httpResponse, error) -> Void in
                     if error == nil {
@@ -56,14 +62,14 @@ class NetworkController {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         
-        //asynchronous call, gets it's own queue automatically via requestAccessToAccountsWithType
+        //asynchronous call, gets it's own queue automatically
         accountStore.requestAccessToAccountsWithType(accountType, options: nil) { (granted : Bool, error: NSError!) -> Void in
             if granted {
                 let accounts = accountStore.accountsWithAccountType(accountType)
                 self.twitterAccount = accounts.first as ACAccount?
                 let url = NSURL(string: "https://api.twitter.com/1.1/statuses/user_timeline.json")
-                let screenname = ["screen_name": userScreenname!]
-                let twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: url, parameters: screenname)
+                let parameters = ["screen_name": userScreenname!]
+                let twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: url, parameters: parameters)
                 twitterRequest.account = self.twitterAccount
                 twitterRequest.performRequestWithHandler({ (data, httpResponse, error) -> Void in
                     if error == nil {
