@@ -36,7 +36,7 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.networkController = appDelegate.networkController
         
-        networkController.fetchUserTimeLine(screenname) { (errorDescription, tweets) -> (Void) in
+        networkController.fetchUserTimeLine(self.screenname) { (errorDescription, tweets) -> (Void) in
             if errorDescription == nil {
                 self.tweets = tweets
                 self.tableView.reloadData()
@@ -44,6 +44,7 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 //alert the user that somethign went wrong
             }
         }
+        
         self.tableView.reloadData()
     }
     
