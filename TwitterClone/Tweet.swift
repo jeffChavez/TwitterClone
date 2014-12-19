@@ -19,6 +19,7 @@ class Tweet {
     var retweets : Int
     var id : String
     
+    
     init (tweetInfo: NSDictionary) {
         let user = tweetInfo["user"] as NSDictionary
         self.text = tweetInfo["text"] as String
