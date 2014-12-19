@@ -10,8 +10,8 @@ This is a Twitter clone. Users can sign in with their twitter account and view t
 - Lazy loading on profile images
 - Push and pop navigation
 - Dynamically resizing tableview cells
-- User of Nib's
-- Interaction with Twitter's REST API
+- Nib views
+- Extensive interaction with Twitter's REST API
 - `UIRefreshControl` to update timeline with latest tweets
 - `ACAccount` & `ACAccountStore` for handling the twitter account
 - `NSURLSession`
