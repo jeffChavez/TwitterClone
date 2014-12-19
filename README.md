@@ -1,6 +1,6 @@
 TwitterClone
 ============
-Week 1 Assignment at Code Fellows<br>
+Week 1 Assignment at Code Fellows<br><br>
 This is a Twitter clone. Users can sign in with their twitter account and view their home timeline just like they would on the Twitter app. Upon selecting a tweet, the user is taken to  detailed view of that tweet. If the user taps on the profile image, they are taken to that user's timeline. The navigation is handled with push and pop methods, which allows the user to navigate as deep in the stack as the app's memory will allow.
 
 ![Imgur](http://i.imgur.com/7oAlmzD.gif)
