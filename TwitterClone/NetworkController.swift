@@ -97,16 +97,13 @@ class NetworkController {
     func downloadUserImageForTweet(tweet: Tweet, completionHandler: (image: UIImage) -> (Void)) {
         self.imageQueue.addOperationWithBlock { () -> Void in
             let url = NSURL(string: tweet.photoURLString)
-            let imageData = NSData(contentsOfURL: url)
-            let photo = UIImage(data:imageData)
+            let imageData = NSData(contentsOfURL: url!)
+            let photo = UIImage(data:imageData!)
             tweet.photo = photo
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(image: photo)
+                completionHandler(image: photo!)
             })
         }
-        
-//        let normalRange = smallProfileImageURL.rangeOfString("_normal", options: nil, range: nil, locale: nil)
-//        self.profileImageURL = smallProfileImageURL.stringByReplacingCharactersInRange(normalRange!, withString: "_bigger")
     }
 
     init () {
